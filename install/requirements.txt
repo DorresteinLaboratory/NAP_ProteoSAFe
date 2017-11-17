@@ -1,0 +1,11 @@
+# This file may be used to create an environment using:
+# $ conda create --name nap -c bioconda --file <this file>
+HOME=$(pwd)
+$HOME/miniconda3/bin/conda create --name nap python=3.5
+source $HOME/miniconda3/bin/activate nap
+$HOME/miniconda3/bin/conda install -c cyclus java-jdk=8.45.14  
+$HOME/miniconda3/bin/conda install -c r r-rjava=0.9_8 r-xml=3.98_1.5 r-rcpp r-codetools
+$HOME/miniconda3/bin/conda install -c bioconda openbabel
+$HOME/miniconda3/bin/conda install -c bioconda numpy
+$HOME/miniconda3/bin/conda install -c bioconda argparse 
+source $HOME/miniconda3/bin/deactivate

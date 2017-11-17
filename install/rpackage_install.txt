@@ -1,0 +1,6 @@
+
+install.packages(c("optparse", "doMC", "rcdk", "data.table", "rjson", "squash", "dynamicTreeCut"), repos= "http://cran.us.r-project.org" )
+
+source("https://bioconductor.org/biocLite.R")
+biocLite(c("graph"))
+

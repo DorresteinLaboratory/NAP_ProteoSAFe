@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<interface id="speclib_add" version="1.2.3">
+	<!-- View definitions -->
+
+	<download>
+                <source type="folder" name="lid_res"/>
+                <source type="folder" name="final_out"/>
+                <source type="folder" name="metfrag_out"/>
+                <source type="folder" name="summary_nap"/>
+                <source type="folder" name="jobid"/>
+                <source type="folder" name="req"/>
+        </download>
+
+	<view id="summary_report" label="Summary Report">
+		<blockRef id="main" type="summary_report"/>
+	</view>
+
+	
+    <block id="summary_report" type="table">
+        <data>
+            <source type="file" name="jobid/"/>
+            <parsers>
+                <parser type="sortedTabular" sortBy="cluster.index" operator="ascending"/>
+            </parsers>
+	    <processors>
+		 <processor type="uploadFilename" field="SpectrumFile"/>
+	    </processors>
+
+        </data>
+        <row>
+            <column type="integer"     field="cluster.index"    label="cluster.index"        width="3"/>
+            <column type="float"     field="parent.mass"  label="Parent Mass"   precision="3"/>
+            <column type="float"     field="RTMean"  label="RT"   precision="3"/>
+            <column type="text"        field="LibraryID"    label="LibraryID"         width="20"/>
+            <column type="text"        field="MetFragID"    label="MetFragID"         width="20"/>
+            <column type="text"        field="MetFragSC"    label="MetFragSC"         width="20"/>
+            <column type="text"        field="FusionID"    label="FusionID"         width="20"/>
+            <column type="text"        field="FusionSC"    label="FusionSC"         width="20"/>
+            <column type="text"        field="ConsensusID"    label="ConsensusID"         width="20"/>
+            <column type="text"        field="ConsensusSC"    label="ConsensusSC"         width="20"/>
+        </row>
+    </block>
+
+</interface>
+

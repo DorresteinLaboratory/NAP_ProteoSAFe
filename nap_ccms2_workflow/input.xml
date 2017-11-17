@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<interface id="nap_ccms" version="1.2.5">
+    <workflow-id>NAP_CCMS2</workflow-id>
+    <workflow-label>NAP_CCMS</workflow-label>
+
+    <!-- Parameter declarations -->
+    <parameters>
+        <!-- Universal parameters -->
+        <parameter name="desc" label="Description">
+            <validator type="length" maximum="100"/>
+        </parameter>
+        <parameter name="email" label="Email">
+            <validator type="email"/>
+        </parameter>
+        <!-- Search file parameters -->
+        
+        <parameter name="JOBID" label="GNPS job ID">
+            <default value=""/>
+        </parameter>
+ 
+       <parameter name="CNUN" label="Number of a cluster node">
+            <default value="0"/>
+            <validator type="integer"  maximum="10000000"/>
+        </parameter>
+         <parameter name="NFIRST" label="N first candidates for consensus score">
+                    <default value="10"/>
+         </parameter>
+         <parameter name="PPM" label="Accurary for exact mass candidate search.">
+                    <default value="15"/>
+         </parameter>
+         <parameter name="PROP" label="Use fusion result for consensus">
+                                 <default value="on"/>
+         </parameter>
+         <parameter name="CHARGE" label="Acquisition mode">
+                             <options>
+                                 <option value="Positive"/>
+                                 <option value="Negative"/>
+                             </options>
+              <validator type="set"/>
+        </parameter>
+
+         <parameter name="ADDUCT" label="Adduct ion type">
+                             <options>
+                                 <option value="[M+H]"/>
+                                 <option value="[M]"/>
+                                 <option value="[M+NH4]"/>
+                                 <option value="[M+Na]"/>
+                                 <option value="[M+K]"/>
+                                 <option value="[M-H]"/>
+                                 <option value="[M+Cl]"/>
+                             </options>
+              <validator type="set"/>
+        </parameter>
+        <parameter name="MULTION" label="Multiple adduct types">
+            <default value=""/>
+        </parameter>
+        <parameter name="DATABASE" label="Structure databases">
+            <default value=""/>
+        </parameter>
+
+        <parameter name="CCCLASS" label="Compound class to be selected">
+            <default value=""/>
+        </parameter>
+
+        <parameter name="UDB" label="User provided database">
+        	<fileGenerator type="upload" purpose="spectrum" target="udb"/>
+        </parameter>
+        <parameter name="MFP" label="User provided MetFrag parameter file">
+        	<fileGenerator type="upload" purpose="spectrum" target="mfp"/>
+        </parameter>
+
+         <parameter name="SKIP" label="Skip parent mass selection">
+                                 <default value="off"/>
+         </parameter>
+
+         <parameter name="COSINE" label="Cosine value to subselect inside a cluster">
+                    <default value="0.5"/>
+         </parameter>
+         <parameter name="NREPORT" label="Maximum number of candidates structures in the graph">
+                    <default value="10"/>
+         </parameter>
+
+         <parameter name="PLOT" label="Plot data">
+                                 <default value="on"/>
+         </parameter>
+
+        
+    </parameters>
+
+    <!-- Input form layout -->
+    <block label="File Selection">
+        
+        
+        <row>
+            <cell>
+                <label>
+                    <content parameter="JOBID"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="JOBID">
+                    <attribute name="size" value="10"/>
+                </input>
+            </cell>
+        </row>
+        <row>
+            <cell>
+                <label>
+                    <content parameter="CNUN"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="CNUN">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+            <cell>
+                <label>
+                    <content parameter="COSINE"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="COSINE">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+ 
+        </row>
+	<row>
+            <cell>
+                <label>
+                    <content parameter="NFIRST"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="NFIRST">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+            <cell>
+                 <input type="checkbox" parameter="PROP"/>
+                  <label>
+                       <content parameter="PROP"/>
+                 </label>
+            </cell>
+
+        </row>
+        <row>
+            <cell>
+                <label>
+                    <content parameter="PPM"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="PPM">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+        </row>
+         <row>
+             <cell>
+             	<label>
+                	<content parameter="CHARGE"/>
+                </label>
+               </cell>
+             <cell>
+            		<input type="select" parameter="CHARGE"/>
+            </cell>
+            <cell>
+            	<label>
+            		<content parameter="ADDUCT"/>
+                </label>
+            </cell>
+           <cell>
+          	<input type="select" parameter="ADDUCT"/>
+            </cell>
+        </row>
+
+        <row>
+            <cell>
+                <label>
+                    <content parameter="MULTION"/>
+                       <tooltip id="mad">Input one or more adducts, separated by ",". Available options are: listed on the Adduct drop down menu.</tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="MULTION">
+                    <attribute name="size" value="10"/>
+                </input>
+            </cell>
+
+	 </row>
+
+        <row>
+            <cell>
+                <label>
+                    <content parameter="DATABASE"/>
+                       <tooltip id="db">Input one or more databases, separated by ",". Available options are:GNPS, HMDB, SUPNAT, DNP, CHEBI. Use none to select only user defined.</tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="DATABASE">
+                    <attribute name="size" value="10"/>
+                </input>
+            </cell>
+
+            <cell>
+                <label>
+                    <content parameter="CCCLASS"/>
+                       <tooltip id="cl">ClassyFire class in the following format: "class:name"</tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="CCCLASS">
+                    <attribute name="size" value="10"/>
+                </input>
+            </cell>
+
+	 </row>
+        <row>
+            <cell>
+                <label>
+                    <content parameter="UDB"/>
+                </label>
+            </cell>
+            <cell>
+            	<module id="UDB" type="fileSelector">
+            		<property name="label">User provided database</property>
+            	</module>
+            </cell>
+            <cell>
+                 <input type="checkbox" parameter="SKIP"/>
+                  <label>
+                       <content parameter="SKIP"/>
+                       <tooltip id="sk">Should be used only with specific class selection.</tooltip>
+                 </label>
+            </cell>
+
+        </row>
+ 	<row>
+            <cell>
+                <label>
+                    <content parameter="MFP"/>
+                   <tooltip id="mf">Check here https://github.com/DorresteinLaboratory for a template.</tooltip>
+                </label>
+            </cell>
+            <cell>
+            	<module id="MFP" type="fileSelector">
+            		<property name="label">User provided MetFrag parameter file</property>
+            	</module>
+            </cell>
+        </row>
+
+	<row>
+            <cell>
+                <label>
+                    <content parameter="NREPORT"/>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="NREPORT">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+       
+        </row>
+
+
+
+
+    </block>
+</interface>

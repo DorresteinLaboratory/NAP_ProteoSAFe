@@ -1,0 +1,13 @@
+   
+   HOME=$(pwd)
+   wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   bash Miniconda3-latest-Linux-x86_64.sh
+   ./requirements.txt 
+   YOURPATHCONDAENV=$HOME/miniconda3/envs/nap/ 
+   export JAVA_HOME=$HOME/miniconda3/envs/nap/jre
+   export LD_LIBRARY_PATH=$HOME/miniconda3/envs/nap/jre/lib/amd64/server
+   $HOME/miniconda3/envs/nap/bin/R CMD javareconf
+   $HOME/miniconda3/envs/nap/bin/Rscript rpackage_install.txt 
+
+   find ../nap_ccms2 -type f|xargs perl -pi -e 's/PATHCONDAENV/YOURPATHCONDAENV/g'
+   find ../nap_ccms2 -type f|xargs perl -pi -e 's/PATHTOOLSFOLDER/YOURPATHTOOLSFOLDER/g'

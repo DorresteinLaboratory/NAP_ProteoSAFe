@@ -1,0 +1,120 @@
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: frag_plots not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: frag_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: metfrag_out not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: node_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: panel_figures not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: panel_figures not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Port in binding not found in flow: step5
+DEBUG      workflow_validator:90 Port in binding not found in flow: step6
+DEBUG      workflow_validator:90 Port in binding not found in flow: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: frag_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: metfrag_out not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: node_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: panel_figures not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: panel_figures not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: final_out_frag_plots not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: final_out_frag_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: final_out_metfrag_out not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: final_out_node_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: final_out_panel_figures not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: frag_plots not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: frag_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: node_plots not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: panel_figures not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step4
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step4
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step4
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step4
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step9
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step9
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_fusion not found in tool: step6
+DEBUG      workflow_validator:90 Tool parameter in binding: merge_consensus not found in tool: step6
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:90 Port in binding not found in flow: fragmenter
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================
+DEBUG      workflow_validator:87 ======================Error List==============================

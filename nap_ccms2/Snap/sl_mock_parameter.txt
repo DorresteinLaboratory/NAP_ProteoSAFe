@@ -1,0 +1,45 @@
+#
+# data file containing mz intensity peak pairs (one per line)
+#
+PeakListPath = PATH_TO_REPLACE
+
+#
+# database parameters -> how to retrieve candidates
+# 
+#
+MetFragDatabaseType = TYPE
+#LocalDatabasePath = PATH
+#NeutralPrecursorMolecularFormula = C9H11Cl3NO3PS
+#DatabaseSearchRelativeMassDeviation = PPM
+NeutralPrecursorMass = MASS_TO_REPLACE
+#IonizedPrecursorMass = 349.93356
+
+#
+# peak matching parameters
+#
+FragmentPeakMatchAbsoluteMassDeviation = 0.01
+FragmentPeakMatchRelativeMassDeviation = 5
+PrecursorIonMode = 1
+IsPositiveIonMode = True
+
+#
+# scoring parameters
+#
+MetFragScoreTypes = FragmenterScore
+MetFragScoreWeights = 1.0
+
+#
+# output
+# SDF, XLS, CSV, ExtendedXLS, ExtendedFragmentsXLS
+#
+MetFragCandidateWriter = FragmentSmilesPSV 
+SampleName = NAME_TO_REPLACE
+ResultsPath = .
+
+#
+# following parameteres can be kept as they are
+#
+MaximumTreeDepth = 2
+MetFragPreProcessingCandidateFilter = UnconnectedCompoundFilter
+MetFragPostProcessingCandidateFilter = InChIKeyFilter
+NumberThreads = 6

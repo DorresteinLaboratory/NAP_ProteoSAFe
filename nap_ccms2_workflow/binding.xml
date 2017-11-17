@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<binding>
+    <bind action="begin" type="download">
+        <url value="{livesearch.download}"/>
+        <query name="task" valueRef="@task" />
+        <query name="user" valueRef="@user"/>
+        <compression type="zip" />
+        <download port="flowParams" type="file">
+            <query name="resource" value="params"/>
+        </download>
+        <downloadParams>
+            <query name="resource" value="params"/>
+        </downloadParams>
+        <download port="udb" type="folder">
+            <query name="resource" value="udb"/>
+        </download>
+        <download port="mfp" type="folder">
+            <query name="resource" value="mfp"/>
+        </download>
+
+    </bind>
+
+
+    <bind action="split_data" tool="step0">
+        <inputAsRequirement port="flowParams"       requirement="flowParams"/>
+        <inputAsRequirement port="udb"       requirement="udb"/>
+        <inputAsRequirement port="mfp"       requirement="mfp"/>
+        <productionToOutput port="split_data"           production="split_data"/>
+        <productionToOutput port="chunk_data"           production="chunk_data"/>
+    </bind>
+
+    
+    <bind action="fragmenter" tool="step1">
+        <inputAsRequirement port="chunk_data"             requirement="chunk_data"/>
+        <inputAsRequirement port="split_data"       requirement="split_data"/>
+        <productionToOutput port="fragmenter_res"           production="fragmenter_res"/>
+    </bind>
+
+    <bind action="merge_fragments" tool="merge_fragments">
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <inputAsRequirement port="fragmenter_res"             requirement="fragmenter_res"/>
+        <productionToOutput port="lid_res"           production="lid_res"/>
+        <productionToOutput port="chunk_res"           production="chunk_res"/>
+    </bind>
+
+    <bind action="fusion" tool="step2">
+        <inputAsRequirement port="chunk_res"             requirement="chunk_res"/>
+        <inputAsRequirement port="lid_res"             requirement="lid_res"/>
+        <inputAsRequirement port="fragmenter_res"             requirement="fragmenter_res"/>
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <productionToOutput port="fusion_res"           production="fusion_res"/>
+    </bind>
+
+    <bind action="merge_fusion" tool="merge_fusion">
+        <inputAsRequirement port="fusion_res"             requirement="fusion_res"/>
+        <productionToOutput port="merge_fusion"           production="merge_fusion"/>
+        <productionToOutput port="chunk_fus"           production="chunk_fus"/>
+    </bind>
+
+
+    <bind action="consensus" tool="step3">
+        <inputAsRequirement port="chunk_fus"             requirement="chunk_fus"/>
+        <inputAsRequirement port="fusion_res"             requirement="fusion_res"/>
+        <inputAsRequirement port="fragmenter_res"             requirement="fragmenter_res"/>
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <inputAsRequirement port="lid_res"             requirement="lid_res"/>
+        <inputAsRequirement port="merge_fusion"             requirement="merge_fusion"/>
+        <productionToOutput port="consensus_res"           production="consensus_res"/>
+    </bind>
+
+    <bind action="merge_consensus" tool="merge_consensus">
+        <inputAsRequirement port="consensus_res"             requirement="consensus_res"/>
+        <productionToOutput port="merge_consensus"           production="merge_consensus"/>
+    </bind>
+
+
+
+    <bind action="graph_render" tool="step4">
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <inputAsRequirement port="lid_res"             requirement="lid_res"/>
+        <inputAsRequirement port="merge_fusion"             requirement="merge_fusion"/>
+        <inputAsRequirement port="merge_consensus"             requirement="merge_consensus"/>
+        <productionToOutput port="final_out"           production="final_out"/>
+    </bind>
+
+    <bind action="metfrag_out" tool="step6">
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <inputAsRequirement port="lid_res"             requirement="lid_res"/>
+        <inputAsRequirement port="merge_fusion"             requirement="merge_fusion"/>
+        <inputAsRequirement port="merge_consensus"             requirement="merge_consensus"/>
+        <productionToOutput port="metfrag_out"           production="metfrag_out"/>
+    </bind>
+
+    <bind action="summary_nap" tool="step9">
+        <inputAsRequirement port="split_data"             requirement="split_data"/>
+        <inputAsRequirement port="lid_res"             requirement="lid_res"/>
+        <inputAsRequirement port="merge_fusion"             requirement="merge_fusion"/>
+        <inputAsRequirement port="merge_consensus"             requirement="merge_consensus"/>
+        <inputAsRequirement port="final_out"             requirement="final_out"/>
+        <inputAsRequirement port="metfrag_out"             requirement="metfrag_out"/>
+        <productionToOutput port="summary_nap"           production="summary_nap"/>
+        <productionToOutput port="jobid"           production="jobid"/>
+        <productionToOutput port="req"           production="req"/>
+    </bind>
+
+    <bind action="end" type="upload">
+        <url value="{livesearch.upload}"/>
+        <query name="task" valueRef="@task"/>
+        <contentQuery name="content"/>
+        <compression type="zip"/>
+        <upload port="lid_res" type="folder">
+            <query name="resource" value="lid_res"/>
+        </upload>
+        <upload port="final_out" type="folder">
+            <query name="resource" value="final_out"/>
+        </upload>
+        <upload port="metfrag_out" type="folder">
+            <query name="resource" value="metfrag_out"/>
+        </upload>
+        <upload port="summary_nap" type="folder">
+            <query name="resource" value="summary_nap"/>
+        </upload>
+        <upload port="jobid" type="folder">
+            <query name="resource" value="jobid"/>
+        </upload>
+        <upload port="req" type="folder">
+            <query name="resource" value="req"/>
+        </upload>
+
+     </bind>
+</binding>

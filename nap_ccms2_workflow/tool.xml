@@ -1,0 +1,180 @@
+<toolset>
+
+<pathSet base="nap_ccms2">
+        <toolPath tool="step0"       path="step0.py"/>
+        <toolPath tool="step1"       path="step1.py"/>
+        <toolPath tool="merge_fragments"       path="merge_fragments.py"/>
+        <toolPath tool="step2"       path="step2.py"/>
+        <toolPath tool="merge_fusion"       path="merge_fusion.py"/>
+        <toolPath tool="step3"       path="step3.py"/>
+        <toolPath tool="merge_consensus"       path="merge_consensus.py"/>
+        <toolPath tool="step4"       path="step4.py"/>
+        <toolPath tool="step6"       path="step6.py"/>
+        <toolPath tool="step9"       path="write_table.R"/>
+</pathSet>
+
+
+<tool name="step0">
+        <require name="flowParams" type="file"/>
+        <require name="udb" type="file"/>
+        <require name="mfp" type="file"/>
+        <produce name="split_data"   type="folder"/>
+        <produce name="chunk_data"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="flowParams"/>
+                <arg valueRef="udb"/>
+                <arg valueRef="mfp"/>
+                <arg valueRef="split_data"/>
+                <arg valueRef="chunk_data"/>
+        </execution>
+</tool>
+
+<tool name="step1">
+        <require name="chunk_data"   type="file"/>
+        <require name="split_data" type="folder"/>
+        <produce name="fragmenter_res" type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="chunk_data"/>
+                <arg valueRef="split_data"/>
+                <arg valueRef="fragmenter_res"/>
+        </execution>
+</tool>
+
+<tool name="merge_fragments">
+        <require name="split_data"   type="folder"/>
+        <require name="fragmenter_res" type="folder"/>
+        <produce name="lid_res"   type="folder"/>
+        <produce name="chunk_res"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="split_data"/>
+                <arg valueRef="fragmenter_res"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="chunk_res"/>
+        </execution>
+</tool>
+
+
+
+<tool name="step2">
+        <require name="chunk_res"   type="file"/>
+        <require name="lid_res"   type="folder"/>
+        <require name="fragmenter_res"   type="folder"/>
+        <require name="split_data"   type="folder"/>
+        <produce name="fusion_res"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="chunk_res"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="fragmenter_res"/>
+                <arg valueRef="split_data"/>
+                <arg valueRef="fusion_res"/>
+        </execution>
+</tool>
+
+<tool name="merge_fusion">
+        <require name="fusion_res"   type="folder"/>
+        <produce name="merge_fusion"   type="folder"/>
+        <produce name="chunk_fus"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="fusion_res"/>
+                <arg valueRef="merge_fusion"/>
+                <arg valueRef="chunk_fus"/>
+        </execution>
+</tool>
+
+
+
+<tool name="step3">
+        <require name="chunk_fus"   type="file"/>
+        <require name="fusion_res"   type="folder"/>
+        <require name="fragmenter_res"   type="folder"/>
+        <require name="split_data"   type="folder"/>
+        <require name="lid_res"   type="folder"/>
+        <require name="merge_fusion"   type="folder"/>
+        <produce name="consensus_res"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="chunk_fus"/>
+                <arg valueRef="fusion_res"/>
+                <arg valueRef="fragmenter_res"/>
+                <arg valueRef="split_data"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="merge_fusion"/>
+                <arg valueRef="consensus_res"/>
+        </execution>
+</tool>
+
+<tool name="merge_consensus">
+        <require name="consensus_res"   type="folder"/>
+        <produce name="merge_consensus"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="consensus_res"/>
+                <arg valueRef="merge_consensus"/>
+        </execution>
+</tool>
+
+
+
+<tool name="step4">
+        <require name="split_data"   type="folder"/>
+        <require name="lid_res"   type="folder"/>
+        <require name="merge_fusion"   type="folder"/>
+        <require name="merge_consensus"   type="folder"/>
+        <produce name="final_out"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="split_data"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="merge_fusion"/>
+                <arg valueRef="merge_consensus"/>
+                <arg valueRef="final_out"/>
+        </execution>
+</tool>
+
+<tool name="step6">
+        <require name="split_data"   type="folder"/>
+        <require name="lid_res"   type="folder"/>
+        <require name="merge_fusion"   type="folder"/>
+        <require name="merge_consensus"   type="folder"/>
+        <produce name="metfrag_out"   type="folder"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="split_data"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="merge_fusion"/>
+                <arg valueRef="merge_consensus"/>
+                <arg valueRef="metfrag_out"/>
+        </execution>
+</tool>
+
+
+<tool name="step9">
+        <require name="split_data"   type="folder"/>
+        <require name="lid_res"   type="folder"/>
+        <require name="merge_fusion"   type="folder"/>
+        <require name="merge_consensus"   type="folder"/>
+        <require name="final_out"   type="folder"/>
+        <require name="metfrag_out"   type="folder"/>
+        <produce name="summary_nap"   type="file" naming="explicit" extension="txt"/>
+        <produce name="jobid"   type="file" naming="explicit" extension="txt"/>
+        <produce name="req"   type="file" naming="explicit" extension="zip"/>
+        
+        <execution env="binary" argConvention="adhoc">
+                <arg valueRef="split_data"/>
+                <arg valueRef="lid_res"/>
+                <arg valueRef="merge_fusion"/>
+                <arg valueRef="merge_consensus"/>
+                <arg valueRef="final_out"/>
+                <arg valueRef="metfrag_out"/>
+                <arg valueRef="summary_nap"/>
+                <arg valueRef="jobid"/>
+                <arg valueRef="req"/>
+        </execution>
+</tool>
+
+</toolset>

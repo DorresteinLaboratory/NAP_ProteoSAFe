@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<flow name="speclib-add">
+	<object     name="workflowParameters"/>
+	<collection     name="spec1"/>
+	<collection     name="spec2"/>
+	<collection     name="split_data"/>
+	<collection     name="chunk_data"/>
+	<collection     name="fragmenter_res"/>
+	<object     name="lid_res"/>
+	<collection    name="chunk_res"/>
+	<collection     name="fusion_res"/>
+	<object     name="merge_fusion"/>
+	<collection    name="chunk_fus"/>
+	<object     name="consensus_res"/>
+	<object     name="merge_consensus"/>
+	<object     name="final_out"/>
+	<object     name="metfrag_out"/>
+	<object     name="summary_nap"/>
+	<object     name="jobid"/>
+
+	
+	<action name="begin">
+		<output port="flowParams" object="workflowParameters"/>
+		<output port="udb" object="spec1"/>
+		<output port="mfp" object="spec2"/>
+	</action>
+	
+	
+	<action name="split_data">
+		<input  port="flowParams"             object="workflowParameters"/>
+		<input  port="udb"             collection="spec1"/>
+		<input  port="mfp"             collection="spec2"/>
+		<output port="split_data"           collection="split_data"/>
+		<output port="chunk_data"           collection="chunk_data"/>
+	</action>
+
+	<action name="fragmenter" multiplicity="multiple" type="parallel">
+		<input  port="chunk_data"             collection="chunk_data" transformation="unfolding"/>
+		<input port="split_data"           collection="split_data"/>
+		<output port="fragmenter_res"        collection="fragmenter_res"/>
+    	</action>
+
+	<action name="merge_fragments" >
+		<input  port="split_data"             collection="split_data"/>
+		<input port="fragmenter_res"        collection="fragmenter_res"/>
+		<output  port="lid_res"             collection="lid_res"/>
+		<output  port="chunk_res"             collection="chunk_res"/>
+    	</action>
+
+	<action name="fusion" multiplicity="multiple" type="parallel">
+		<input  port="chunk_res"             collection="chunk_res" transformation="unfolding"/>
+		<input  port="lid_res"             collection="lid_res"/>
+		<input  port="fragmenter_res"             collection="fragmenter_res"/>
+		<input  port="split_data"             collection="split_data"/>
+		<output port="fusion_res"           collection="fusion_res"/>
+    	</action>
+
+	<action name="merge_fusion" >
+		<input  port="fusion_res"             collection="fusion_res"/>
+		<output  port="merge_fusion"             object="merge_fusion"/>
+		<output  port="chunk_fus"             collection="chunk_fus"/>
+    	</action>
+
+	<action name="consensus" multiplicity="multiple" type="parallel">
+		<input  port="chunk_fus"             collection="chunk_fus" transformation="unfolding"/>
+		<input  port="fusion_res"             collection="fusion_res"/>
+		<input  port="fragmenter_res"             collection="fragmenter_res"/>
+		<input  port="split_data"             object="split_data"/>
+		<input  port="lid_res"             object="lid_res"/>
+		<input  port="merge_fusion"             object="merge_fusion"/>
+		<output  port="consensus_res"             object="consensus_res"/>
+    	</action>
+
+	<action name="merge_consensus" >
+		<input  port="consensus_res"             collection="consensus_res"/>
+		<output  port="merge_consensus"             object="merge_consensus"/>
+    	</action>
+
+	<action name="graph_render">
+		<input  port="split_data"             object="split_data"/>
+		<input  port="lid_res"             object="lid_res"/>
+		<input  port="merge_fusion"             object="merge_fusion"/>
+		<input  port="merge_consensus"             object="merge_consensus"/>
+		<output  port="final_out"             object="final_out"/>
+    	</action>
+
+	<action name="metfrag_out">
+		<input  port="split_data"             object="split_data"/>
+		<input  port="lid_res"             object="lid_res"/>
+		<input  port="merge_fusion"             object="merge_fusion"/>
+		<input  port="merge_consensus"             object="merge_consensus"/>
+		<output  port="metfrag_out"             object="metfrag_out"/>
+    	</action>
+
+	<action name="summary_nap">
+		<input  port="split_data"             object="split_data"/>
+		<input  port="lid_res"             object="lid_res"/>
+		<input  port="merge_fusion"             object="merge_fusion"/>
+		<input  port="merge_consensus"             object="merge_consensus"/>
+		<input  port="final_out"             object="final_out"/>
+		<input  port="metfrag_out"             object="metfrag_out"/>
+		<output  port="summary_nap"             object="summary_nap"/>
+		<output  port="jobid"             object="jobid"/>
+		<output  port="req"             object="req"/>
+    	</action>
+
+
+	<action name="end">
+		<input  port="lid_res"             object="lid_res"/>
+		<input  port="final_out"             object="final_out"/>
+		<input  port="metfrag_out"             object="metfrag_out"/>
+		<input  port="summary_nap"             object="summary_nap"/>
+		<input  port="jobid"             object="jobid"/>
+		<input  port="req"             object="req"/>
+	</action>
+</flow>
