@@ -43,4 +43,4 @@ sc <- function(metfrag, alpha=0.3,  cosine, tn) {
   alpha*metfrag + (1-alpha)*sum(sigmoid(cosine*tn)) 
 }
 
-sigmoid <- function(x, a = 9, b = 0.6) 1/(1+exp(-a*(x-b)))
+sigmoid <- function(x, a = -9, b = 0.6) 1/(1+exp(a*(x-b)))
