@@ -87,5 +87,5 @@ Refer to the documentation or open an issue on this GitHub repository, or post a
 https://groups.google.com/forum/#!forum/molecular_networking_bug_reports
 
 ## Licence
-This repository is available under the MIT Open licence.
+This repository is available under the following licence https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/blob/master/LICENSE.txt
 
