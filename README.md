@@ -20,7 +20,7 @@ Network Annotation Propagation uses molecular networking to improve the accuracy
 The Network Annotation Propagation (NAP) tool is accessible through the GNPS web-platform https://gnps.ucsd.edu/ProteoSAFe/static/gnps-theoretical.jsp
 
 ## Graphical abstract
-<img src="img/Network_annotation_propagation_Figure_1.jpg"/>
+<img src="IMG/Network_annotation_propagation_Figure_1.jpg"/>
 Figure 1. Representative scenarios of molecular networks obtained in an untargeted MS/MS experiment and possibilities for propagation.
 a) Introduction of molecular networking and library matching. b, c and d represent varying degree of spectral annotation in the network. e, f and g illustrate how the propagation of annotations can be used for each respective scenario (represented in the top panel). e) The Fusion scoring—The spectral library hit nodes (red) are employed to recalculate the score of candidate structures (grey shapes associated to nodes) for nodes having structure candidates from in silico fragmentation search (blue), based on their structural similarity (Represented by the green heatmaps, where darker green indicates a higher degree of similarity). f) and g) The Consensus scoring—a Consensus scoring can be used, based on the joint similarity of neighbors (pink nodes) for spectral library hits and in silico annotations (f), or in silico annotation only, when no library match is present (g).
 
