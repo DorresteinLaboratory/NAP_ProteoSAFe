@@ -54,13 +54,15 @@ A custom database can be used as input in NAP. The list of structure as to be pr
 The notebook and input template files are available in the following folder.
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
 #### Installation 
-First, install Miniconda https://conda.io/miniconda.html or Anaconda Navigator https://docs.anaconda.com/anaconda/navigator/
-Then, Jupyter notebook: http://jupyter.org/install
+First, install Miniconda https://conda.io/miniconda.html
+
+Then, install Jupyter notebook: http://jupyter.org/install
+With miniconda, https://jupyter.readthedocs.io/en/latest/install.html
 ```
 pip3 install --upgrade pip
 pip3 install jupyter
 ```
-After that, create an environment with the following instructions:
+After that, create an environment with the following command:
 ```
 conda create -n formatdb python=3
 source activate formatdb
@@ -71,12 +73,13 @@ pip install requests
 python -m ipykernel install --user --name formatdb --display-name formatdb
 source deactivate 
 ```
-Import the formatdb.ipynb in Jupyter notebook.
-Set the new kernel: in the Jupyter interface, on the top menu Kernel >> Change Kernel >> formatdb.
+Note that Anaconda Navigator can used instead. https://docs.anaconda.com/anaconda/navigator/
 
-with Python 3. Set a kernel with RDKit and Classyfire libraries 
-[the script classyfire.py has to be added in the notebook folder]. The resulting output can be uploaded on GNPS, and specified as input in NAP interface.
+Import the content of the following folder on your computer: https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
+Open the formatdb.ipynb with Jupyter notebook.
+In the Jupyter notebook, set the new kernel -> On the top menu Kernel >> Change Kernel >> formatdb.
 
+The resulting output can be uploaded on GNPS, and specified as input in the NAP workflow interface.
 
 
 ## Installation for developers
