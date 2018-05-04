@@ -49,10 +49,34 @@ The documentation is available here:
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/raw/master/supplementar_tool_manual_documentation.pdf
 
 ### Creating a custom database
+#### Description
 A custom database can be used as input in NAP. The list of structure as to be processed with dedicated Jupyter notebook first.
 The notebook and input template files are available in the following folder.
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
-Installation: install Jupyter notebooks with Python 3. Set a kernel with RDKit and Classyfire libraries [the script classyfire.py has to be added in the notebook folder]. The resulting output can be uploaded on GNPS, and specified as input in NAP interface.
+#### Installation 
+First, install Miniconda https://conda.io/miniconda.html or Anaconda Navigator https://docs.anaconda.com/anaconda/navigator/
+Then, Jupyter notebook: http://jupyter.org/install
+```
+pip3 install --upgrade pip
+pip3 install jupyter
+```
+After that, create an environment with the following instructions:
+```
+conda create -n formatdb python=3
+source activate formatdb
+conda install -c rdkit rdkit
+pip install pandas
+pip install ipykernel
+pip install requests
+python -m ipykernel install --user --name formatdb --display-name formatdb
+source deactivate 
+```
+Import the formatdb.ipynb in Jupyter notebook.
+Set the new kernel: in the Jupyter interface, on the top menu Kernel >> Change Kernel >> formatdb.
+
+with Python 3. Set a kernel with RDKit and Classyfire libraries 
+[the script classyfire.py has to be added in the notebook folder]. The resulting output can be uploaded on GNPS, and specified as input in NAP interface.
+
 
 
 ## Installation for developers
