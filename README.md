@@ -56,7 +56,7 @@ https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
 #### Installation instructions
 First, install Miniconda https://conda.io/miniconda.html
 
-In miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
+In Miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
 ```
 pip3 install --upgrade pip
 pip3 install jupyter
