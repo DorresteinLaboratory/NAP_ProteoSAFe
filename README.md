@@ -50,14 +50,13 @@ https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/raw/master/supplementar_t
 
 ### Creating a custom database
 #### Description
-A custom database can be used as input in NAP. The list of structure as to be processed with dedicated Jupyter notebook first.
+A custom database can be used as input in NAP. The list of structure as to be processed with dedicated Jupyter notebook first http://jupyter.org/install.
 The notebook and input template files are available in the following folder.
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
 #### Installation 
 First, install Miniconda https://conda.io/miniconda.html
 
-Then, install Jupyter notebook: http://jupyter.org/install
-With miniconda, https://jupyter.readthedocs.io/en/latest/install.html
+Then, in miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
 ```
 pip3 install --upgrade pip
 pip3 install jupyter
@@ -73,10 +72,10 @@ pip install requests
 python -m ipykernel install --user --name formatdb --display-name formatdb
 source deactivate 
 ```
-Note that Anaconda Navigator can used instead. https://docs.anaconda.com/anaconda/navigator/
+Note that Anaconda Navigator can used instead: https://docs.anaconda.com/anaconda/navigator/
 
 Import the content of the following folder on your computer: https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
-Open the formatdb.ipynb with Jupyter notebook.
+Activate the formatdb environment in conda, and open the formatdb.ipynb with Jupyter notebook. 
 In the Jupyter notebook, set the new kernel -> On the top menu Kernel >> Change Kernel >> formatdb.
 
 The resulting output can be uploaded on GNPS, and specified as input in the NAP workflow interface.
