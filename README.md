@@ -50,13 +50,13 @@ https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/raw/master/supplementar_t
 
 ### Creating a custom database
 #### Description
-A custom database can be used as input in NAP. The list of structure as to be processed with dedicated Jupyter notebook first http://jupyter.org/install.
+A custom database can be used as input in NAP. The list of structure has to be processed first with dedicated Jupyter notebook [http://jupyter.org/install].
 The notebook and input template files are available in the following folder.
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
-#### Installation 
+#### Installation instructions
 First, install Miniconda https://conda.io/miniconda.html
 
-Then, in miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
+In miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
 ```
 pip3 install --upgrade pip
 pip3 install jupyter
