@@ -50,10 +50,23 @@ https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/raw/master/supplementar_t
 
 ### Creating a custom database
 #### Description
-A custom database can be used as input in NAP. The list of structure has to be processed first with dedicated Jupyter notebook [http://jupyter.org/install].
-The notebook and input template files are available in the following folder.
+
+#### Using the wep-app [Recommended]
+A custom database can be used in NAP. First, the list of structures has to be processed with a web-app before being used in NAP.
+
+The web-app can be accessed at the following address: http://dorresteinappshub.ucsd.edu:5002/upload
+The input file consists of .txt file (tab separated) with two columns, the first one with the SMILES string, and the second one with the compound name (unique string). An example input file can be accessed here:
+https://raw.githubusercontent.com/DorresteinLaboratory/NAP_ProteoSAFe/master/formatdb/Euphorbia_Example_inhouse_database.txt
+
+When completed, the results of the job will be sent to the email address provided.
+The .TSV file obtained can then be added to the NAP job interface [https://gnps.ucsd.edu/ProteoSAFe/static/gnps-theoretical.jsp]. NB: Note that the custom database will be added to the other databases selected.
+
+
+#### Jupyter notebook [For developers]
+The jupyter notebook [http://jupyter.org/install], and input template files are available in the following folder:
 https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/tree/master/formatdb
-#### Installation instructions
+
+##### Installation instructions
 First, install Miniconda https://conda.io/miniconda.html
 
 In Miniconda, install Jupyter notebook: https://jupyter.readthedocs.io/en/latest/install.html
