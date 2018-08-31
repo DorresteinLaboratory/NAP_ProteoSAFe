@@ -31,6 +31,7 @@ http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006089
 ## Other citations
 NAP uses molecular networking on GNPS
 Wang, M.; Carver, J. J.; Phelan, V. V.; Sanchez, L. M.; Garg, N.; Peng, Y.; Nguyen, D. D.; Watrous, J.; Kapono, C. A.; Luzzatto-Knaan, T.; et al. Sharing and Community Curation of Mass Spectrometry Data with Global Natural Products Social Molecular Networking. Nat. Biotechnol. 2016, 34 (8), 828–837.
+https://www.nature.com/articles/nbt.3597
 
 NAP uses MetFrag for in silico annotation
 Wolf, S.; Schmidt, S.; Müller-Hannemann, M.; Neumann, S. In Silico Fragmentation for Computer Assisted Identification of Metabolite Mass Spectra. BMC Bioinformatics 2010, 11 (1), 148.
