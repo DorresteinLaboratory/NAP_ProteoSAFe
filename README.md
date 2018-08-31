@@ -52,7 +52,7 @@ https://github.com/DorresteinLaboratory/NAP_ProteoSAFe/raw/master/supplementar_t
 #### Description
 
 #### Using the wep-app [Recommended]
-A custom database can be used in NAP. First, the list of structures has to be processed with a web-app before being used in NAP.
+A custom database can be used in NAP. First, the list of structures has to be processed with a web-app, before being used in NAP.
 
 The web-app can be accessed at the following address: http://dorresteinappshub.ucsd.edu:5002/upload
 The input file consists of .txt file (tab separated) with two columns, the first one with the SMILES string, and the second one with the compound name (unique string). An example input file can be accessed here:
